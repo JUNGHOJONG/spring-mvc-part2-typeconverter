@@ -1,5 +1,6 @@
 package hello.typeconverter.controller;
 
+import hello.typeconverter.type.IpPort;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +42,14 @@ public class HelloController {
     @GetMapping("hello-v4/users/{userId}")
     public String helloV4(@PathVariable Integer userId) {
         log.info("V4 - data = {}", userId);
+
+        return "ok";
+    }
+
+    @GetMapping("/ip-port")
+    public String ipPort(@RequestParam IpPort ipPort) {
+        log.info("ipPort ip = {}", ipPort.getIp());
+        log.info("ipPort port = {}", ipPort.getPort());
 
         return "ok";
     }
